@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+///игровая сессия
 class GameSession:Codable {
     var score:Int = 0
     var date:Date = Date()

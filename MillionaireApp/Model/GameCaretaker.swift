@@ -7,6 +7,7 @@
 
 import Foundation
 
+///caretaker для паттерна memento (позволяет сохранять рекорды)
 class GameCaretaker{
     let encoder = JSONEncoder()
     let decoder = JSONDecoder()

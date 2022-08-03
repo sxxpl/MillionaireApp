@@ -7,10 +7,12 @@
 
 import UIKit
 
+///контроллер с игрой
 class GameViewController: UIViewController {
     
     weak var delegate:GameViewDelegateProtocol?
     
+    ///вопросы для игры
     var questions = [
     Question(question: "Как звали пушкинского Онегина?", answers: ["Александр", "Иван","Евгений", "Михаил"], trueAnswer: "Евгений"),
     Question(question: "Какой вид транспорта, еще не имеет службы предварительного заказа билетов?", answers: ["Морской", "Авиационный", "Железнодорожный","Троллейбусный"], trueAnswer: "Троллейбусный"),
@@ -140,6 +142,7 @@ class GameViewController: UIViewController {
         questionLabel.text = questions[questionIndex].question
     }
     
+    ///метод применяется при нажатии на кнопку
     @objc func getAnswer(sender: UIButton!){
         guard let questionIndex = Game.shared.gameSession?.score else {
             navigationController?.popToRootViewController(animated: true)
@@ -147,7 +150,7 @@ class GameViewController: UIViewController {
         }
         if sender.titleLabel?.text == questions[questionIndex].trueAnswer {
             delegate?.didGetCorrectAnswer()
-            if Game.shared.gameSession?.score == 5 {
+            if Game.shared.gameSession?.score == questions.count {
                 delegate?.didEndTheGame()
                 navigationController?.popToRootViewController(animated: true)
             }

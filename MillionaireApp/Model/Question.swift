@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+///структура вопроса для игры
 struct Question{
     var question:String
     var answers:[String]

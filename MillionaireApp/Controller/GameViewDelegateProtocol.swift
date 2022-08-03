@@ -7,6 +7,7 @@
 
 import Foundation
 
+///протокол делегата
 protocol GameViewDelegateProtocol:AnyObject {
     func didGetCorrectAnswer()
     func didEndTheGame()

@@ -7,6 +7,7 @@
 
 import UIKit
 
+///таблица с рекордами
 class RecordsViewController: UIViewController {
     
     private var tableView:UITableView = {

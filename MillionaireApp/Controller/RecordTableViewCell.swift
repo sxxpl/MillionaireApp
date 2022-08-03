@@ -7,6 +7,7 @@
 
 import UIKit
 
+///ячейка для таблицы с рекордами
 class RecordTableViewCell: UITableViewCell {
     
     static var identifier = "RecordCell"

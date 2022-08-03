@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// главный экран
 class ViewController: UIViewController {
     
     var image:UIImageView = {
@@ -82,6 +83,7 @@ class ViewController: UIViewController {
     
 }
 
+///подписание на протокол делегата gameViewController
 extension ViewController:GameViewDelegateProtocol {
     
     func didGetCorrectAnswer() {

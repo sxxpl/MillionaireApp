@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+///синглтон, в котором хранятся рекорды и текущая сессия
 class Game {
     static let shared = Game()
 
