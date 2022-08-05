@@ -7,7 +7,7 @@
 
 import Foundation
 ///структура вопроса для игры
-struct Question{
+struct Question:Codable{
     var question:String
     var answers:[String]
     var trueAnswer:String

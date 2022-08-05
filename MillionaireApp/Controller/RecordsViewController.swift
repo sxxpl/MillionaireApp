@@ -20,10 +20,11 @@ class RecordsViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupConstraints()
+        
     }
     
     func setupTableView(){
-        tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        tableView.backgroundColor = #colorLiteral(red: 0.1962192953, green: 0, blue: 0.2904796004, alpha: 1)
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,8 +46,9 @@ class RecordsViewController: UIViewController {
 extension RecordsViewController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let records:[Record] = Game.shared.records.reversed()
         let cell = tableView.dequeueReusableCell(withIdentifier: RecordTableViewCell.identifier) as! RecordTableViewCell
-        cell.configure(score: Game.shared.records[indexPath.row].score,date: Game.shared.records[indexPath.row].date)
+        cell.configure(score: records[indexPath.row].score,date: records[indexPath.row].date)
         return cell
     }
     

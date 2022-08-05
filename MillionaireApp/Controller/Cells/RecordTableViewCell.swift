@@ -24,6 +24,7 @@ class RecordTableViewCell: UITableViewCell {
     
     var scoreLabel:UILabel = {
         var label = UILabel()
+        label.textColor = #colorLiteral(red: 0.9962093234, green: 0.7054080367, blue: 0, alpha: 1)
         label.font = .preferredFont(forTextStyle: .title3, compatibleWith: nil)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -31,6 +32,7 @@ class RecordTableViewCell: UITableViewCell {
     
     var dateLabel:UILabel = {
         var label = UILabel()
+        label.textColor = #colorLiteral(red: 0.9962093234, green: 0.7054080367, blue: 0, alpha: 1)
         label.font = .preferredFont(forTextStyle: .body, compatibleWith: nil)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,6 +40,7 @@ class RecordTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.layer.backgroundColor = #colorLiteral(red: 0.1962192953, green: 0, blue: 0.2904796004, alpha: 1)
         setupConstraints()
     }
     

@@ -29,6 +29,18 @@ class SettingsViewController: UIViewController {
         return label
     }()
     
+    var addButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        button.setTitle("Добавить новые вопросы", for: .normal)
+        button.setTitleColor( UIColor(red: 0, green: 0.4, blue: 0.7, alpha: 1) , for: .normal)
+        button.backgroundColor = UIColor(red: 0, green: 0.4, blue: 0.7, alpha: 0.3)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(addQuestions), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.01, green: 0.015, blue: 0.1, alpha: 1)
@@ -36,16 +48,24 @@ class SettingsViewController: UIViewController {
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     private func setupConstraints(){
         view.addSubview(questionStrategyButton)
         view.addSubview(questionStrategyLabel)
+        view.addSubview(addButton)
         NSLayoutConstraint.activate([
             questionStrategyButton.bottomAnchor.constraint(equalTo: view.centerYAnchor),
             questionStrategyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             questionStrategyButton.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor, constant: 100),
             questionStrategyLabel.bottomAnchor.constraint(equalTo: questionStrategyButton.topAnchor, constant: -15),
             questionStrategyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            questionStrategyLabel.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor, constant: 50)
+            questionStrategyLabel.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor, constant: 50),
+            addButton.topAnchor.constraint(equalTo: questionStrategyButton.bottomAnchor,constant: 50),
+            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addButton.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor,constant: 30),
         ])
     }
     
@@ -82,5 +102,9 @@ class SettingsViewController: UIViewController {
             changeStrategyButtonColor(strategy: .normal)
             StrategyCaretaker().saveStrategy(strategy: .normal)
         }
+    }
+    
+    @objc func addQuestions(){
+        navigationController?.pushViewController(AddViewController(), animated: true)
     }
 }

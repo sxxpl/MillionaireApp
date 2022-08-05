@@ -13,8 +13,8 @@ class GameViewController: UIViewController {
     weak var delegate:GameViewDelegateProtocol?
     
     var questionStrategy:QuestionOrderStrategyProtocol?
-
     
+    private var numberOfQuestion = Observable<Int>(0)
     
     ///вопросы для игры
     var questions = [
@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 8
+        button.titleLabel?.numberOfLines = 0
         button.addTarget(self, action: #selector(getAnswer(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -43,6 +44,7 @@ class GameViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 8
+        button.titleLabel?.numberOfLines = 0
         button.addTarget(self, action: #selector(getAnswer(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -54,6 +56,7 @@ class GameViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 8
+        button.titleLabel?.numberOfLines = 0
         button.addTarget(self, action: #selector(getAnswer(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -65,6 +68,7 @@ class GameViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 8
+        button.titleLabel?.numberOfLines = 0
         button.addTarget(self, action: #selector(getAnswer(sender:)), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -84,6 +88,17 @@ class GameViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    var scoreLabel:UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.font = .preferredFont(forTextStyle: .largeTitle, compatibleWith: nil)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
 
     override func viewDidLoad() {
@@ -91,6 +106,8 @@ class GameViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.01, green: 0.015, blue: 0.1, alpha: 1)
         setupViews()
         setupConstraints()
+        setObserver()
+        loadQuestions()
         questionStrategy?.setQuestions(questions: &questions)
         Game.shared.gameSession = GameSession()
         Game.shared.gameSession?.score = 0
@@ -108,6 +125,7 @@ class GameViewController: UIViewController {
         view.addSubview(thirdButton)
         view.addSubview(fourthButton)
         view.addSubview(questionLabel)
+        view.addSubview(scoreLabel)
     }
     
     private func setupConstraints(){
@@ -131,8 +149,18 @@ class GameViewController: UIViewController {
             questionLabel.bottomAnchor.constraint(equalTo: view.centerYAnchor,constant: -100),
             questionLabel.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor,constant: 10),
             questionLabel.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor,constant: -10),
-            questionLabel.heightAnchor.constraint(equalToConstant: 150)
+            questionLabel.heightAnchor.constraint(equalToConstant: 150),
+            scoreLabel.bottomAnchor.constraint(equalTo: secondButton.centerYAnchor,constant: -15),
+            scoreLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scoreLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor),
+            scoreLabel.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor,constant: 50),
         ])
+    }
+    
+    private func setObserver(){
+        numberOfQuestion.addObserver(self,options: [.new,.initial], closure: {[weak self] new, _ in
+            self?.scoreLabel.text = "\(new)"
+        })
     }
     
     private func setupQuestions(){
@@ -147,6 +175,10 @@ class GameViewController: UIViewController {
         questionLabel.text = questions[questionIndex].question
     }
     
+    private func loadQuestions(){
+        questions.append(contentsOf: QuestionCaretaker().loadQuestions())
+    }
+    
     ///метод применяется при нажатии на кнопку
     @objc func getAnswer(sender: UIButton!){
         guard let questionIndex = Game.shared.gameSession?.score else {
@@ -154,6 +186,7 @@ class GameViewController: UIViewController {
             return
         }
         if sender.titleLabel?.text == questions[questionIndex].trueAnswer {
+            numberOfQuestion.value += 1
             delegate?.didGetCorrectAnswer()
             if Game.shared.gameSession?.score == questions.count {
                 delegate?.didEndTheGame()

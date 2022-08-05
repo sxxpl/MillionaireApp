@@ -14,6 +14,12 @@
 		AD3ACFAD289D3CE6005E4147 /* QuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFAC289D3CE6005E4147 /* QuestionStrategy.swift */; };
 		AD3ACFAF289D51B2005E4147 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFAE289D51B2005E4147 /* SettingsViewController.swift */; };
 		AD3ACFB1289D5922005E4147 /* StrategyCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFB0289D5922005E4147 /* StrategyCaretaker.swift */; };
+		AD3ACFB3289D617B005E4147 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFB2289D617B005E4147 /* Observable.swift */; };
+		AD3ACFB5289D62EA005E4147 /* RecordStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFB4289D62EA005E4147 /* RecordStruct.swift */; };
+		AD3ACFB7289D9F89005E4147 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFB6289D9F89005E4147 /* AddViewController.swift */; };
+		AD3ACFB9289D9F9F005E4147 /* QuestionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFB8289D9F9F005E4147 /* QuestionCaretaker.swift */; };
+		AD3ACFDC289DA9B5005E4147 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFDB289DA9B5005E4147 /* AddTableViewCell.swift */; };
+		AD3ACFDF289DBA4F005E4147 /* QuestionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3ACFDE289DBA4F005E4147 /* QuestionBuilder.swift */; };
 		ADA0BD06289A77CA009748E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0BD05289A77CA009748E2 /* AppDelegate.swift */; };
 		ADA0BD08289A77CA009748E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0BD07289A77CA009748E2 /* SceneDelegate.swift */; };
 		ADA0BD0A289A77CA009748E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA0BD09289A77CA009748E2 /* ViewController.swift */; };
@@ -34,6 +40,12 @@
 		AD3ACFAC289D3CE6005E4147 /* QuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStrategy.swift; sourceTree = "<group>"; };
 		AD3ACFAE289D51B2005E4147 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AD3ACFB0289D5922005E4147 /* StrategyCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrategyCaretaker.swift; sourceTree = "<group>"; };
+		AD3ACFB2289D617B005E4147 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		AD3ACFB4289D62EA005E4147 /* RecordStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordStruct.swift; sourceTree = "<group>"; };
+		AD3ACFB6289D9F89005E4147 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		AD3ACFB8289D9F9F005E4147 /* QuestionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCaretaker.swift; sourceTree = "<group>"; };
+		AD3ACFDB289DA9B5005E4147 /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
+		AD3ACFDE289DBA4F005E4147 /* QuestionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBuilder.swift; sourceTree = "<group>"; };
 		ADA0BD02289A77CA009748E2 /* MillionaireApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MillionaireApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADA0BD05289A77CA009748E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADA0BD07289A77CA009748E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +80,32 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		AD3ACFBA289DA006005E4147 /* Caretakers */ = {
+			isa = PBXGroup;
+			children = (
+				AD3ACFB8289D9F9F005E4147 /* QuestionCaretaker.swift */,
+				AD3ACFB0289D5922005E4147 /* StrategyCaretaker.swift */,
+				AD3ACFA7289AD17D005E4147 /* GameCaretaker.swift */,
+			);
+			path = Caretakers;
+			sourceTree = "<group>";
+		};
+		AD3ACFDD289DA9B8005E4147 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AD3ACFDB289DA9B5005E4147 /* AddTableViewCell.swift */,
+				AD3ACFA5289AA10F005E4147 /* RecordTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AD3ACFE0289DCF7F005E4147 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		ADA0BCF9289A77CA009748E2 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +125,7 @@
 		ADA0BD04289A77CA009748E2 /* MillionaireApp */ = {
 			isa = PBXGroup;
 			children = (
+				AD3ACFE0289DCF7F005E4147 /* Helpers */,
 				ADA0BD21289A88B6009748E2 /* Model */,
 				ADA0BD22289A88C1009748E2 /* View */,
 				ADA0BD23289A88C7009748E2 /* Controller */,
@@ -101,11 +140,13 @@
 		ADA0BD21289A88B6009748E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD3ACFBA289DA006005E4147 /* Caretakers */,
 				ADA0BD1D289A7935009748E2 /* GameSession.swift */,
 				ADA0BD1B289A78DC009748E2 /* Game.swift */,
 				ADA0BD1F289A8849009748E2 /* Question.swift */,
-				AD3ACFA7289AD17D005E4147 /* GameCaretaker.swift */,
-				AD3ACFB0289D5922005E4147 /* StrategyCaretaker.swift */,
+				AD3ACFB4289D62EA005E4147 /* RecordStruct.swift */,
+				AD3ACFB2289D617B005E4147 /* Observable.swift */,
+				AD3ACFDE289DBA4F005E4147 /* QuestionBuilder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -122,12 +163,13 @@
 		ADA0BD23289A88C7009748E2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AD3ACFDD289DA9B8005E4147 /* Cells */,
 				AD3ACFAB289D3CAA005E4147 /* Protocols */,
 				ADA0BD09289A77CA009748E2 /* ViewController.swift */,
 				ADA0BD24289A8930009748E2 /* GameViewController.swift */,
 				AD3ACFA3289AA03B005E4147 /* RecordsViewController.swift */,
 				AD3ACFAE289D51B2005E4147 /* SettingsViewController.swift */,
-				AD3ACFA5289AA10F005E4147 /* RecordTableViewCell.swift */,
+				AD3ACFB6289D9F89005E4147 /* AddViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -204,19 +246,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADA0BD25289A8930009748E2 /* GameViewController.swift in Sources */,
+				AD3ACFB5289D62EA005E4147 /* RecordStruct.swift in Sources */,
+				AD3ACFB9289D9F9F005E4147 /* QuestionCaretaker.swift in Sources */,
+				AD3ACFB3289D617B005E4147 /* Observable.swift in Sources */,
 				AD3ACFB1289D5922005E4147 /* StrategyCaretaker.swift in Sources */,
 				AD3ACFA8289AD17D005E4147 /* GameCaretaker.swift in Sources */,
 				ADA0BD0A289A77CA009748E2 /* ViewController.swift in Sources */,
 				AD3ACFA4289AA03B005E4147 /* RecordsViewController.swift in Sources */,
+				AD3ACFB7289D9F89005E4147 /* AddViewController.swift in Sources */,
 				AD3ACFAD289D3CE6005E4147 /* QuestionStrategy.swift in Sources */,
 				ADA0BD06289A77CA009748E2 /* AppDelegate.swift in Sources */,
 				AD3ACFA2289A9D9A005E4147 /* GameViewDelegateProtocol.swift in Sources */,
+				AD3ACFDC289DA9B5005E4147 /* AddTableViewCell.swift in Sources */,
 				ADA0BD1E289A7935009748E2 /* GameSession.swift in Sources */,
 				ADA0BD20289A8849009748E2 /* Question.swift in Sources */,
 				ADA0BD08289A77CA009748E2 /* SceneDelegate.swift in Sources */,
 				AD3ACFAF289D51B2005E4147 /* SettingsViewController.swift in Sources */,
 				AD3ACFA6289AA10F005E4147 /* RecordTableViewCell.swift in Sources */,
 				ADA0BD1C289A78DC009748E2 /* Game.swift in Sources */,
+				AD3ACFDF289DBA4F005E4147 /* QuestionBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +417,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,6 +446,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

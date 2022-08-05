@@ -16,7 +16,7 @@ class GameCaretaker{
     
     let userDefaults = UserDefaults.standard
     
-    func saveRecords(recordes:[GameSession]){
+    func saveRecords(recordes:[Record]){
         do {
             let data = try encoder.encode(recordes)
             userDefaults.set(data, forKey: key)
@@ -25,13 +25,13 @@ class GameCaretaker{
         }
     }
     
-    func loadRecordes() -> [GameSession] {
-        var records:[GameSession] = []
+    func loadRecordes() -> [Record] {
+        var records:[Record] = []
         do {
             guard let recordsJSON = userDefaults.data(forKey: key) else {
                 return []
             }
-            records = try decoder.decode([GameSession].self, from: recordsJSON)
+            records = try decoder.decode([Record].self, from: recordsJSON)
         } catch {
             print(error)
         }

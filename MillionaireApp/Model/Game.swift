@@ -18,7 +18,7 @@ class Game {
     
     var gameSession:GameSession?
     
-    var records:[GameSession] = [] {
+    var records:[Record] = [] {
         didSet {
             gameCaretaker.saveRecords(recordes: records)
         }

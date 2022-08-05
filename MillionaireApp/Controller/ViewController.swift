@@ -104,7 +104,12 @@ class ViewController: UIViewController {
     }
     
     @objc func openSettings(){
-        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+        let backItem = UIBarButtonItem()
+        backItem.title = "Назад"
+        backItem.tintColor = #colorLiteral(red: 0, green: 0.4025264978, blue: 0.704318583, alpha: 1)
+        navigationItem.backBarButtonItem = backItem
+        let viewController = SettingsViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
@@ -120,8 +125,8 @@ extension ViewController:GameViewDelegateProtocol {
         guard let gameSession = Game.shared.gameSession else {
             return
         }
-        gameSession.date = Date()
-        Game.shared.records.append(gameSession)
+        let record = Record(score: gameSession.score, date: Date())
+        Game.shared.records.append(record)
         Game.shared.gameSession = nil
     }
 }
