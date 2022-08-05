@@ -23,4 +23,6 @@ class Game {
             gameCaretaker.saveRecords(recordes: records)
         }
     }
+    
+    var strategy:Strategy = StrategyCaretaker().loadStrategy()
 }

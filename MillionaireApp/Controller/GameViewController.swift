@@ -12,6 +12,10 @@ class GameViewController: UIViewController {
     
     weak var delegate:GameViewDelegateProtocol?
     
+    var questionStrategy:QuestionOrderStrategyProtocol?
+
+    
+    
     ///вопросы для игры
     var questions = [
     Question(question: "Как звали пушкинского Онегина?", answers: ["Александр", "Иван","Евгений", "Михаил"], trueAnswer: "Евгений"),
@@ -87,6 +91,7 @@ class GameViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.01, green: 0.015, blue: 0.1, alpha: 1)
         setupViews()
         setupConstraints()
+        questionStrategy?.setQuestions(questions: &questions)
         Game.shared.gameSession = GameSession()
         Game.shared.gameSession?.score = 0
         setupQuestions()

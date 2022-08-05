@@ -14,7 +14,6 @@ class RecordTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     let dateFormatter:DateFormatter = {

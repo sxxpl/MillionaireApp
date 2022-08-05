@@ -42,6 +42,18 @@ class ViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    var settingsButton:UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        button.setTitle("Настройки", for: .normal)
+        button.setTitleColor( UIColor(red: 0, green: 0.4, blue: 0.7, alpha: 1) , for: .normal)
+        button.backgroundColor = UIColor(red: 0, green: 0.4, blue: 0.7, alpha: 0.3)
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +66,7 @@ class ViewController: UIViewController {
     private func setupConstraints(){
         view.addSubview(playButton)
         view.addSubview(recordsButton)
+        view.addSubview(settingsButton)
         view.addSubview(image)
         NSLayoutConstraint.activate([
             playButton.topAnchor.constraint(equalTo: view.centerYAnchor,constant: 50),
@@ -62,6 +75,9 @@ class ViewController: UIViewController {
             recordsButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 15),
             recordsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             recordsButton.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor, constant: 100),
+            settingsButton.topAnchor.constraint(equalTo: recordsButton.bottomAnchor, constant: 15),
+            settingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            settingsButton.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor, constant: 100),
             image.heightAnchor.constraint(equalToConstant: 200),
             image.widthAnchor.constraint(equalToConstant: 200),
             image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -74,11 +90,21 @@ class ViewController: UIViewController {
     @objc func startGame(){
         let viewController = GameViewController()
         viewController.delegate = self
+        switch Game.shared.strategy {
+        case .normal:
+            viewController.questionStrategy = NormalStrategy()
+        case .random:
+            viewController.questionStrategy = RandomStrategy()
+        }
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @objc func seeRecords(){
         present(RecordsViewController(), animated: true)
+    }
+    
+    @objc func openSettings(){
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
     
 }
